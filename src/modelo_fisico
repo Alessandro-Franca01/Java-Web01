@@ -1,0 +1,30 @@
+/* Modelagem Fisica MySQL - java web */
+
+CREATE DATABASE PROJETO_JAVA_WEB;
+
+USE PROJETO_JAVA_WEB;
+
+/* OBS: Criar um campo de Login 'NOT NULL UNIQUE' */
+CREATE TABLE USUARIO(
+	IDUSUARIO INT PRIMARY KEY AUTO_INCREMENT,
+	NOME VARCHAR(20) NOT NULL,
+	SOBRE_NOME VARCHAR(20)NOT NULL,
+	CPF VARCHAR(12) NOT NULL UNIQUE,
+	SENHA VARCHAR(10) NOT NULL,
+	EMAIL VARCHAR(15),
+	SEXO CHAR,
+	DATA_NASC DATE
+);
+
+
+/* Alimentando o Banco - OBS: Data estava dando por causa do formato yyyy-mm-dd */
+INSERT INTO USUARIO (IDUSUARIO, NOME, SOBRE_NOME, CPF, SENHA, EMAIL, SEXO, DATA_NASC)
+VALUES(NULL,'ALEANDRO','FRANCA','12341234555','SEHNA01','ALE@GMAIL.COM','M',11/10/1985);  
+
+ /* Buscando nome e id do Usuarios atraves do sexo */
+SELECT IDUSUARIO,NOME FROM USUARIO
+WHERE SEXO='M';
+
+ /* Buscando Id do usuario pelo Nome e Senha - Depois ajeitar a tabela para usar o Login no lugar do Nome*/
+ SELECT IDUSUARIO FROM USUARIO
+ WHERE NOME NOME = ? AND SENHA = ?;
