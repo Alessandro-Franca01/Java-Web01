@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+<%@ page import="java.sql.Connection" %> 
+<%@ page import="dao.Conexao" %>    
+<%@ page import="dao.UsuarioDao" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -24,13 +28,20 @@
     </div>
     
     <%
-    	// Iniciando a validaçao de login do usuario
+    	// TESTANDO JAVA WEB
+   	 	UsuarioDao uDao = new UsuarioDao();
+   	 	
+    	// Capturando dados do formuario
     	String login = request.getParameter("login");
     	String senha = request.getParameter("senha");
-    	
-    	// Vamos testar o request!!
-    	out.print("Bem vindo!\n"+"Seu login é: "+login);
     	System.out.println(login+" e "+senha);
+    	
+    	// JSP não esta se conectando com o banco de dados MySQL!!!
+    	// Parece que funcionou a conexao!
+    	Connection con = Conexao.conectar();
+    	
+		int validacao = UsuarioDao.validarLogin(login, senha);
+
     %>
 
 </body>

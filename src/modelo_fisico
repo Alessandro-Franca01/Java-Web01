@@ -26,5 +26,6 @@ SELECT IDUSUARIO,NOME FROM USUARIO
 WHERE SEXO='M';
 
  /* Buscando Id do usuario pelo Nome e Senha - Depois ajeitar a tabela para usar o Login no lugar do Nome*/
- SELECT IDUSUARIO FROM USUARIO
- WHERE NOME NOME = ? AND SENHA = ?;
+ /* Se a busca no banco retorna o id entao valido o login, caso negativo entao enviar um messagem */
+SELECT IDUSUARIO FROM USUARIO
+WHERE NOME = ? AND SENHA = ?;

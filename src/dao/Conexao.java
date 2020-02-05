@@ -8,10 +8,13 @@ public class Conexao {
 	
 	private static String USUARIO = "root";
 	private static String SENHA = "alessandro";
-	private static String ULR = "jdbc:mysql://localhost:3306/projeto_java_web?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+	private static String ULR = "jdbc:mysql://localhost:3306/projeto_java_web";
+	private static String ULR1 = "jdbc:mysql://localhost:3306/projeto_java_web?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 
-	public static Connection conectar() throws SQLException{
-		Connection conexao = DriverManager.getConnection(ULR, USUARIO, SENHA);
+	public static Connection conectar()throws Exception{
+		Connection con;
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection conexao = DriverManager.getConnection(ULR1, USUARIO, SENHA);
 		return conexao;
 	}
 	
@@ -20,10 +23,15 @@ public class Conexao {
 		try{
 		Connection conexao = Conexao.conectar();
 		System.out.println("Conectado com sucesso!");
+		System.out.println("...");
+		System.out.println("Fechando conexao!");
+		conexao.close();
+		conexao.toString();
 		}
 		catch (Exception e) {
 			e.getMessage();
 			System.out.println("Erro ao conectar!");
+			e.printStackTrace();
 			
 		}
 	}
