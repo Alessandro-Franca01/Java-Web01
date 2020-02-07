@@ -36,12 +36,13 @@
     	String senha = request.getParameter("senha");
     	System.out.println(login+" e "+senha);
     	
-    	// JSP não esta se conectando com o banco de dados MySQL!!!
-    	// Parece que funcionou a conexao!
+    	// Funciona mas ainda não esta bom
     	Connection con = Conexao.conectar();
     	
+    	// Funfando !!!
 		int validacao = UsuarioDao.validarLogin(login, senha);
-
+		
+    	
     %>
 
 </body>

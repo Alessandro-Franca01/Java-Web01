@@ -11,7 +11,7 @@
         <ul>
             <li><a href="#">Inicio</li>
             <li><a href="#">Sobre</li>
-            <li><a href="#">Cadastro</li>
+            <li><a href="Formulario.jsp">Cadastro</li>
             <li><a href="login.jsp">Login</li>
         </ul>
     </div>
